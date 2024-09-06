@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arkibo</title>
+    <link rel="stylesheet" href="arkibo.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <script>
+      function checkPassword(event) {
+        event.preventDefault(); // Prevent form from submitting
+        var password = document.getElementById("password").value;
+        if (password === "password") {
+          document.getElementById("password-protect").style.display = "none";
+          document.getElementById("content").style.display = "block";
+        } else {
+          document.getElementById("error-message").style.display = "block";
+        }
+      }
+
+      window.onload = function () {
+        document
+          .getElementById("password-form")
+          .addEventListener("submit", checkPassword);
+      };
+    </script>
+  </head>
+  <body>
+    <header>
+      <img
+        src="images/arkibo.png"
+        alt="Image of the logo of Arkibo"
+        id="arkibo" />
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="journal.html">Journal</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <div id="password-protect">
+        <form id="password-form">
+          <fieldset>
+            <legend>Please Enter Password to Access the Page</legend>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter Password"
+              required />
+            <input type="submit" value="Submit" />
+            <p id="error-message" class="error" style="display: none">
+              Incorrect password. Please try again.
+            </p>
+          </fieldset>
+        </form>
+      </div>
+
+      <div id="content" style="display: none">
+        <div class="sidenav">
+          <ul>
+            <li><a href="#">View All</a></li>
+            <li><a href="#">New Drop</a></li>
+            <li><a href="#">Sale</a></li>
+            <li><a href="#">Tshirt</a></li>
+            <li><a href="#">Sweaters</a></li>
+            <li><a href="#">Jackets</a></li>
+            <li><a href="#">Shorts</a></li>
+            <li><a href="#">Pants</a></li>
+            <li><a href="#">Button-Ups</a></li>
+            <li><a href="#">Headwear</a></li>
+            <li><a href="#">Accessories</a></li>
+          </ul>
+        </div>
+
+        <section class="products">
+          <div class="product">
+            <img src="images/Jacket.webp" alt="Product 1" />
+            <h4>Denim Jacket</h4>
+            <p>$199.99</p>
+            <button type="button">Add to Cart</button>
+          </div>
+          <!-- Add more products here -->
+          <div class="product">
+            <img src="images/tshirt.webp" alt="Product 1" />
+            <h4>"I nailed it" Shirt</h4>
+            <p>$49.99</p>
+            <button type="button">Add to Cart</button>
+          </div>
+          <div class="product">
+            <img src="images/sweater.jpeg" alt="Product 1" />
+            <h4>College Crewneck</h4>
+            <p>$79.99</p>
+            <button type="button">Add to Cart</button>
+          </div>
+          <div class="product">
+            <img src="images/jeans.jpeg" alt="Product 1" />
+            <h4>Faded Jeans</h4>
+            <p>$109.99</p>
+            <button type="button">Add to Cart</button>
+          </div>
+          <div class="product">
+            <img src="images/vneck.jpeg" alt="Product 1" />
+            <h4>Wool v-neck</h4>
+            <p>$59.99</p>
+            <button type="button">Add to Cart</button>
+          </div>
+          <div class="product">
+            <img src="images/varsity.jpeg" alt="Product 1" />
+            <h4>Varsity Jacket</h4>
+            <p>$450.00</p>
+            <button type="button">Add to Cart</button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; All rights reserved.</p>
+      <div id="footermenu">
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Cart</a>
+      </div>
+    </footer>
+  </body>
+</html>

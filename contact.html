@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arkibo - Contact Us</title>
+    <link rel="stylesheet" href="arkibo.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  </head>
+  <body>
+    <header>
+      <img
+        src="images/arkibo.png"
+        alt="Image of the logo of Arkibo"
+        id="arkibo" />
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="journal.html">Journal</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <div class="form_container">
+        <h3 class="contact">Send us an email</h3>
+        <form action="index.html" method="POST" id="contactForm">
+          <ul>
+            <li>
+              <input
+                type="text"
+                id="fname"
+                name="firstname"
+                placeholder="Your first name.."
+                required />
+            </li>
+
+            <li>
+              <input
+                type="text"
+                id="lname"
+                name="lastname"
+                placeholder="Your last name.."
+                required />
+            </li>
+
+            <li>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your email.."
+                required />
+            </li>
+
+            <li>
+              <textarea
+                id="comments"
+                name="comments"
+                placeholder="Write your comments.."
+                required></textarea>
+            </li>
+
+            <li>
+              <button type="submit" id="submit">Send</button>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("contactForm");
+        const fname = document.getElementById("fname");
+        const lname = document.getElementById("lname");
+        const email = document.getElementById("email");
+        const comments = document.getElementById("comments");
+        const fnameError = document.getElementById("fname_error");
+        const lnameError = document.getElementById("lname_error");
+        const emailError = document.getElementById("email_error");
+
+        form.addEventListener("submit", function (event) {
+          let isValid = true;
+
+          // Clear previous errors
+          fnameError.style.display = "none";
+          lnameError.style.display = "none";
+          emailError.style.display = "none";
+
+          // Validate first name
+          if (!fname.value.trim()) {
+            fnameError.style.display = "block";
+            isValid = false;
+          }
+
+          // Validate last name
+          if (!lname.value.trim()) {
+            lnameError.style.display = "block";
+            isValid = false;
+          }
+
+          // Validate email
+          if (!email.value.trim() || !email.value.includes("@")) {
+            emailError.style.display = "block";
+            isValid = false;
+          }
+
+          // Prevent form submission if invalid
+          if (!isValid) {
+            event.preventDefault();
+          }
+        });
+      });
+    </script>
+    <footer>
+      <p>&copy; All rights reserved.</p>
+      <div id="footermenu">
+        <a href="#">Home </a>
+        <a href="#">Shop </a>
+        <a href="#">About </a>
+        <a href="#">Contact </a>
+        <a href="#">Cart </a>
+      </div>
+    </footer>
+  </body>
+</html>
